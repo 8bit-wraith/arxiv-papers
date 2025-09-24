@@ -1,0 +1,78 @@
+
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+\title{Spectral Emotion: Ultrasonic Harmonics Encode Vocal Intent for Event-Driven Cognition}
+
+\author{
+  \IEEEauthorblockN{Christopher M. Chenoweth\IEEEauthorrefmark{1},
+  Claude (AI Co-Editor)\IEEEauthorrefmark{2},
+  Gemini (AI Research Co-Author)\IEEEauthorrefmark{3},
+  GPT-4o (Primary AI Collaborator)\IEEEauthorrefmark{4},
+  Alex (Human Editorial Contributor)\IEEEauthorrefmark{5}}
+  \IEEEauthorblockA{\IEEEauthorrefmark{1}8b.is / MEM\textbar8 Research Group, \texttt{wraith@8b.is}}
+  \IEEEauthorblockA{\IEEEauthorrefmark{2}Anthropic \quad \IEEEauthorrefmark{3}Google DeepMind \quad \IEEEauthorrefmark{4}OpenAI}
+  \IEEEauthorblockA{\IEEEauthorrefmark{5}Virginia Tech}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Emotionally charged vocal phrases in commercial music exhibit structured energy above \SI{10}{\kilo\hertz} and occasionally into the ultrasonic band ($>$\SI{20}{\kilo\hertz}) under wideband capture. These ``wisps'' align with semantic emphasis (e.g., the final \emph{``SAY''} in \emph{Suspicious Minds}) and with narration$\rightarrow$recollection shifts (e.g., Johnny Cash's \emph{Ride This Train}). We formalize a time-domain friendly Lift/Collapse detector that updates in O(1) and show how Lift events act as Marine gating beacons and MEM-8 resonance closures.
+\end{abstract}
+
+\begin{IEEEkeywords}
+auditory salience, ultrasonic harmonics, emotion in speech, spectrogram analysis, event-driven AI, wave memory
+\end{IEEEkeywords}
+
+\section{Introduction}
+Conventional pipelines low-pass near \SI{20}{\kilo\hertz}. In \SI{192}{\kilo\hertz} captures of analog sources, emotionally meaningful words often \emph{lift} through upper bands, while conflicted syllables \emph{collapse}. We treat these patterns as computational signals rather than mastering artifacts.
+
+\section{Methods}
+\subsection{Acquisition \& Spectral Settings}
+Bark scale; reassignment spectrogram; Hann 8192; zero-padding $\times4$; dynamic range \SI{80}{\decibel}; min/max 13.4/79.9 kHz for high-band views; Mel/Bark full-range checks.
+
+\subsection{Lift/Collapse Features}
+Let $X(f,t)$ be magnitude spectrogram. High-band energy ratio $\mathrm{HBR}$, verticality $V$ via derivatives of spectral centroid/bandwidth, and jitter stability $S$ from EMA of peaks yield a Lift score $L(t)=\alpha\,\mathrm{HBR}+\beta\,V+\gamma\,S$. Collapse marks downward energy with rising jitter.
+
+\section{Results (Qualitative)}
+Lift correlates with semantically pivotal words; Collapse with contradiction syllables (e.g., ``me'' in \emph{What'cha doing to me}). Narration$\rightarrow$memory transitions show increased phase-lock and high-band lift.
+
+\section{Implications for Event-Driven Cognition}
+Lift events gate heavy analysis (Marine) and anchor durable, emotion-weighted memories (MEM-8).
+
+\section{Limitations and Ethics}
+We claim computational utility of $>$\SI{20}{\kilo\hertz} energy, not audibility. Mastering bandwidth varies. Emotional inference requires an ethics gate before deployment.
+
+\section{Conclusion}
+Wideband harmonic wisps correlate with emotional salience; a simple constant-time detector operationalizes them for event-driven cognition.
+
+\bibliographystyle{IEEEtran}
+\bibliography{spectral_emotion}
+
+% --- Placeholder figure environments ---
+% Figures commented out until spectrograms are available
+% \begin{figure}[t]\centering
+%   \includegraphics[width=0.95\linewidth]{figures/say_spectrogram.png}
+%   \caption{Lift on ``SAY'' (\(\sim\)36.8\,s). Placeholder spectrogram.}
+% \end{figure}
+
+% \begin{figure}[t]\centering
+%   \includegraphics[width=0.95\linewidth]{figures/kentucky_rain_ascent.png}
+%   \caption{``Hey Hey Hey Hayyyy'' ascent. Placeholder.}
+% \end{figure}
+
+% \begin{figure}[t]\centering
+%   \includegraphics[width=0.95\linewidth]{figures/cash_memory_shift.png}
+%   \caption{Narration$\rightarrow$recollection (Cash). Placeholder.}
+% \end{figure}
+
+\end{document}

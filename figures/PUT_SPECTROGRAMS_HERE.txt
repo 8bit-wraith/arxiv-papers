@@ -1,0 +1,1 @@
+Place spectrogram PNGs here: say_spectrogram.png, kentucky_rain_ascent.png, cash_memory_shift.png

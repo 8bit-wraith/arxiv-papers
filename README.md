@@ -35,6 +35,27 @@ An end-to-end stack that pairs the Marine Algorithm (a universal, O(1) time-doma
 
 [📄 PDF](MEM8_Full_Arxiv.pdf) | [📝 LaTeX Source](MEM8_Full_Arxiv.tex)
 
+---
+
+### 3. Spectral Emotion: Ultrasonic Harmonics Encode Vocal Intent for Event-Driven Cognition
+**Authors:** Christopher M. Chenoweth (8b.is), Claude (Anthropic), Gemini (Google DeepMind), GPT-4o (OpenAI), Alex (Virginia Tech)
+**Date:** 2025
+
+A groundbreaking analysis showing how emotionally charged vocal phrases exhibit structured energy above 10 kHz and into the ultrasonic band (>20 kHz). These "wisps" align with semantic emphasis and emotional transitions, providing computational signals for event-driven AI systems.
+
+**Key Innovations:**
+- Time-domain friendly Lift/Collapse detector with O(1) updates
+- High-band energy ratio (HBR) analysis for emotion detection
+- Integration with Marine Algorithm for gating and MEM-8 for memory formation
+- Spectral analysis settings: Bark scale, reassignment spectrogram, Hann 8192
+
+**Case Studies:**
+- Elvis Presley's "Suspicious Minds" - the emphatic "SAY"
+- "Kentucky Rain" - ascending vocal harmonics
+- Johnny Cash's narrative transitions in "Ride This Train"
+
+[📄 PDF](Spectral_Emotion_AltPaper.pdf) | [📝 LaTeX Source](Spectral_Emotion_AltPaper.tex) | [📚 Bibliography](spectral_emotion.bib)
+
 ## About
 
 These papers represent ongoing research into biologically-plausible computing architectures that prioritize efficiency, interpretability, and safety. The Marine Algorithm and MEM-8 system aim to bridge the gap between traditional deep learning approaches and more neuromorphic, wave-based cognitive models.
