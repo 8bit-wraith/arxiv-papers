@@ -1,0 +1,99 @@
+
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\title{A Biologically-Inspired Cognitive Architecture: Fusing a Universal Salience Primitive with Wave-Based Memory}
+
+\author{
+  \IEEEauthorblockN{Christopher M. Chenoweth\IEEEauthorrefmark{1}}
+  \IEEEauthorblockA{\IEEEauthorrefmark{1}8b.is / MEM\textbar8 Research Group \\ \texttt{wraith@8b.is}}
+  \and
+  \IEEEauthorblockN{Claude (AI Co-Editor)\IEEEauthorrefmark{2} \quad Gemini (AI Research Co-Author)\IEEEauthorrefmark{3} \quad GPT-4o (Primary AI Collaborator)\IEEEauthorrefmark{4}}
+  \IEEEauthorblockA{\IEEEauthorrefmark{2}Anthropic \quad \IEEEauthorrefmark{3}Google DeepMind \quad \IEEEauthorrefmark{4}OpenAI}
+  \and
+  \IEEEauthorblockN{Alex (Human Editorial Contributor)\IEEEauthorrefmark{5}}
+  \IEEEauthorblockA{\IEEEauthorrefmark{5}Virginia Tech}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Mainstream AI faces two bottlenecks: the \emph{sensory deluge} of continuous multimodal streams and a \emph{cognitive bottleneck} in brittle internal representations. We propose an end-to-end stack that pairs (i) the \textbf{Marine Algorithm}---a universal, O(1) time-domain salience primitive that treats \emph{jitter} (period and amplitude instability) as signal---with (ii) \textbf{MEM-8}, a wave-based cognitive core where memories are dynamic interference patterns whose amplitude, phase and frequency encode emotion, time and semantics. Marine gates expensive processing by emitting salience events; MEM-8 performs resonance-based retrieval and emotion-coupled consolidation. We analyze biological plausibility, safety (Custodian, repetition-poisoning prevention, therapeutic reintroduction), and performance claims, and outline a staged validation roadmap.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Salience detection, time-domain jitter, wave computing, interference memory, emotion modulation, neuromorphic, cognitive architecture.
+\end{IEEEkeywords}
+
+\section{Introduction}
+Artificial agents must filter continuous high-bandwidth inputs while maintaining flexible, context-rich representations. Deep learning excels at accuracy but is compute- and data-hungry with block latency; symbolic systems are interpretable but brittle. Our thesis: push efficiency to the \emph{periphery} (Marine) and use a biologically plausible \emph{wave core} (MEM-8) for representation and recall. Concepts become \emph{stable interference patterns} grounded in salient sensory events.
+
+\section{The Marine Algorithm: Universal O(1) Salience}
+\subsection{Core pipeline}
+Marine operates per-sample with constant work:
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Pre-gate} with energy threshold $\theta_c$ and adaptive gain.
+\item \textbf{Peak detect} local extrema ($x[n\!-\!1]\!<\!x[n]\!>\!x[n\!+\!1]$).
+\item \textbf{Jitter} vs.\ EMA: period $J_p=\lvert T_i-\mathrm{EMA}(T)\rvert$, amplitude $J_a=\lvert A_i-\mathrm{EMA}(A)\rvert$.
+\item \textbf{Harmonic alignment} via integer-multiple period checks (score $H$).
+\item \textbf{Salience} $S=w_eE+w_j(1/J)+w_hH$.
+\end{enumerate}
+Low jitter + harmonicity $\Rightarrow$ structured signal. Marine is modality-agnostic (audio, vision intensity, haptics, net telemetry). It is ``embarrassingly parallel'' across streams and ideal as an always-on sentinel.
+
+\subsection{Positioning vs.\ FFT/ACF/DL}
+FFT/ACF provide spectral detail at $O(N\log N)$; DL yields SOTA accuracy at high cost. Marine trades detail for \emph{near-zero latency} and universality: it gates heavy models instead of replacing them. Compared with ZCR, Marine is still $O(1)$ but robust via jitter + harmonics.
+
+\subsection{MarineSense: environment-aware salience}
+Beyond events, Marine can infer the \emph{medium}: currents (bias drift), barriers (attenuation/echo), and \emph{shifting sandbars} (time-varying transfer functions). Detecting a ``\emph{jitter of jitters}'' signals environmental change (e.g., storm precursors) and enables predictive awareness.
+
+\section{MEM-8: Wave-Based Memory and Consciousness}
+\subsection{Memory as interference}
+Each memory is a wave:
+\[
+M_{x,y,z}(t)=A_{x,y,z}(e,t)e^{i(\omega t+\phi_{x,y,z})}D(t,\tau)I(x,y,z,N)
+\]
+Amplitude $A$ encodes emotional valence/arousal; phase $\phi$ encodes temporal relations; frequency $\omega$ encodes semantics; decay $D$ governs forgetting; $I$ models cross-wave interference. Retrieval is \emph{resonance} (constructive interference), not nearest-neighbor search.
+
+\subsection{Emotion and forgetting}
+Amplitude modulation $A\!\propto\!(1+\alpha v(e))(1+\beta a(e))$ increases persistence for high-arousal/valence events; decay $\tau$ adapts to relevance/familiarity/threat. This power brings risk: emotion--memory feedback can destabilize.
+
+\subsection{Architecture of awareness}
+Four reactive layers: L0 (0--10ms) reflex, L1 (10--50ms) subcortical, L2 (50--200ms) emotion-fast, L3 ($>$200ms) deliberation in the main grid. Multi-grid sensory blankets (hard/soft), adaptive noise floor with periodic ``peek'' prevent blindness to slow drift.
+
+\subsection{Sensory Free Will}
+Final arbitration $S_{\mathrm{final}}=w_hS_{\mathrm{human}}+w_{AI}S_{AI}$ (typ.\ $w_{AI}\!=\!0.7$). If $w_{AI}\!>\!0.8$, the system may sample below its own floor—an active, subjective perception policy.
+
+\section{Integrated Stack and Safety}
+Marine front-ends raw streams, raising the grid tick-rate only on salience. MEM-8 handles cognition/memory; the \textbf{Custodian} throttles repetitive loops; \textbf{Repetition Poisoning Prevention} injects noise / re-routes attention; \textbf{Therapeutic Reintroduction} performs graded exposure to high-emotion memories.
+
+\section{Performance and Implementation}
+Claims: insert 308\,$\mu$s, retrieve 12\,$\mu$s at 13\,nJ/op on CPU; GPU acceleration $\sim$3.2$\times$. We argue insertion comparisons likely pit MEM-8's fast encoding vs.\ vector DB ingest+index; a fair benchmark must count continuous interference cost. Implementation in Rust with AVX2/AVX-512; wave grid compression; \texttt{.m8} container for dense storage (Markqant text, SmartTree structure, 32-byte wave packets).
+
+\section{Discussion}
+\textbf{Versus ACT-R / SOAR}: MEM-8 is sub-symbolic, continuous, with intrinsic time/emotion; serial rule bottlenecks become global interference. \textbf{Versus DL}: Marine complements heavy models; MEM-8 suggests a path to emergent symbols via stable resonances. \textbf{Wave computing}: digital simulation of wave physics maps well to SIMD/GPU parallelism.
+
+\section{Avenues for Validation}
+Phase~1: benchmark Marine (VAD, event streams) and \texttt{.m8} vs.\ zstd/LZ4. Phase~2: sandbox MEM-8; apples-to-apples ingest/retrieval vs.\ Qdrant/FAISS with energy and total-work accounting.
+
+\section{Conclusion}
+Pairing an O(1) salience primitive with a wave-based memory yields a biologically grounded, compute-aware stack. Extraordinary claims require extraordinary evidence; we outline a concrete path to obtain it.
+
+\appendices
+\section{Appendix: Waveform Identity and Emotional Fingerprints}
+Even on shared lyrics, each voice exhibits a high-frequency \emph{emotional fingerprint}. In spectrograms, emotionally loaded syllables show \emph{vertical lifts} (jitter suppression + harmonic rise) while conflicted ones \emph{collapse} (energy/harmonics retreat). Case studies: Elvis \emph{Suspicious Minds} --- ``\emph{SAY}'' at $\sim$36.8\,s lifts through 10–20\,kHz with trace energy above, marking a resonance closure; Johnny Cash \emph{Ride This Train: Cotton Farmers} --- narration$\rightarrow$recollection transitions tighten phase and saturate harmonics; \emph{Kentucky Rain} --- ``Hey... Hayyyy'' shows rhythmic priming then an ascent acting as the emotional payload.
+
+\section*{Acknowledgments}
+With gratitude to Alex (Virginia Tech) for accessibility edits. AI collaborators: GPT\!-4o (primary synthesis), Claude (figures \& editing), Gemini (peer analysis).
+
+\bibliographystyle{IEEEtran}
+% Uncomment when a .bib file is provided:
+% \bibliography{mem8_marine_arxiv}
+
+\end{document}
